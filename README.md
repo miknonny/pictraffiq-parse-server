@@ -1,4 +1,9 @@
-# parse-server-example
+# This a repository made for deployment of parse-server to OpenShift PaaS Service
+
+#### With the OpenShift Deploy Button
+[![Deploy to OpenShift](http://launch-shifter.rhcloud.com/launch/Deploy to.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs&cartridges[]=http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-mongodb&initial_git_url=https://github.com/antt001/parse-server-example&name=parse-server-all-in-one)
+
+### this is a fork of parse-server-example
 
 Example project using the [parse-server](https://github.com/ParsePlatform/parse-server) module on Express.
 
