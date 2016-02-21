@@ -3,7 +3,24 @@
 #### With the OpenShift Deploy Button
 [![Deploy to OpenShift](http://launch-shifter.rhcloud.com/launch/Deploy to.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs&cartridges[]=http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-mongodb&initial_git_url=https://github.com/antt001/parse-server-example&name=parseaio)
 
-### this is a fork of parse-server-example
+* If you use rhc, run the following command to set up you Parse APP_ID and MASTER_KEY `rhc env set APP_ID=myAppId MASTER_KEY=myMasterKey -a myAppName` replace myAppId and myMasterKey with your actual app id and master key
+* If you don’t – than clone your OpenShift application repository with git using “Source Code” link from the application details in web console, and modify “appId” and “masterKey” values in index.js file
+```
+var api = new ParseServer({
+  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+  cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
+  appId: process.env.APP_ID || 'myAppId',
+  masterKey: process.env.MASTER_KEY || 'myMasterKey' //Add your master key here. Keep it secret!
+});
+```
+replace myAppId and myMasterKey with your actual app id and master key, commit and push you changes to remote.
+
+### With OpenShift Client Tools(RHC)
+
+```
+rhc app create parseaio http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-nodejs http://cartreflect-claytondev.rhcloud.com/github/icflorescu/openshift-cartridge-mongodb --from-code https://github.com/antt001/parse-server-example --env
+```
+### This is a fork of parse-server-example
 
 Example project using the [parse-server](https://github.com/ParsePlatform/parse-server) module on Express.
 
