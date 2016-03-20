@@ -14,7 +14,7 @@ Parse.Cloud.beforeSave('Users', (request, response) => {
   var query = new Parse.Query('Users')
   console.log(request.object.get('email'))
 
-  // Returns an array of objects with email match
+  // Returns an array of objects with email match for example
   /**
    * [ ParseObject { _objCount: 16, className: 'Users', id: 'pQz90ExmeJ' },
    * ParseObject { _objCount: 17, className: 'Users', id: 'Kxa4KZD4Au' },
@@ -28,5 +28,6 @@ Parse.Cloud.beforeSave('Users', (request, response) => {
   }, (error) => {
     console.log('error: ', error.code + ' ' + error.message)
   })
-  response.success()
+  // this method needs to be called to save object.
+  // response.success()
 })
