@@ -11,8 +11,9 @@ Parse.Cloud.define('hello', function(request, response) {
  * Ensures a single Databse entry for users.
  */
 Parse.Cloud.beforeSave('Users', (request, response) => {
-  console.log(request.object)
-  query.equalsTo('email', request.object.email)
+  let query = Parse.Query('Users')
+  console.log(request.object.get('email'))
+  query.equalsTo('email', request.object.get('email'))
   query.find()
   .then((results) => {
     console.log(results)
