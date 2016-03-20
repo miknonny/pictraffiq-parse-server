@@ -8,15 +8,15 @@ Parse.Cloud.define('hello', function(request, response) {
 });
 
 /**
- * Ensure a single Databse entry for users.
+ * Ensures a single Databse entry for users.
  */
 Parse.Cloud.beforeSave('Users', (request, response) => {
   console.log(request.object)
   query.equalsTo('email', request.object.username)
   query.find()
-  .then((results) {
+  .then((results) => {
     console.log(results)
-  }, (error) {
+  }, (error) => {
     console.log('error: ', error.code + ' ' + error.message)
   })
   // response.success()
