@@ -13,7 +13,7 @@ Parse.Cloud.define('hello', function(request, response) {
 Parse.Cloud.beforeSave('Users', (request, response) => {
   var query = new Parse.Query('Users')
   console.log(request.object.get('email'))
-  query.equalsTo('email', request.object.get('email'))
+  query.equalTo('email', request.object.get('email'))
   query.find()
   .then((results) => {
     console.log(results)
