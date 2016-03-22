@@ -50,11 +50,10 @@ Parse.Cloud.beforeSave('Users', (request, response) => {
  */
 Parse.Cloud.afterSave('Users', (request, response) => {
 
+  // Getting needed data from request object
   var object = request.object
   var username = object.get('username')
   var email = object.get('email')
-
-  console.log(object)
 
   // Template to send
   var welcomeTemplate = mailTemplates(username).welcomeUser()
@@ -62,7 +61,7 @@ Parse.Cloud.afterSave('Users', (request, response) => {
   // Data to be sent.
   var mailData = {
     from: 'team@pictraffiq.com',
-    to: 'to_who',
+    to: email,
     subject: 'Hello from Pictraffiq',
     html: welcomeTemplate
   }
