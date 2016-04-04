@@ -1,15 +1,15 @@
-var Mailgun = require('mailgun')
-var Mailgun = require('mailgun-js')
-var mailTemplates = require('./utils/mailTemplates')
+const Mailgun = require('mailgun')
+const Mailgun = require('mailgun-js')
+const mailTemplates = require('./utils/mailTemplates')
 
 // Your mailgun API details.
-var mailgunAPI = {
+const mailgunAPI = {
   apiKey: process.env.MAILGUN_API_KEY,
   domain: process.env.MAILGUN_DOMAIN,
 }
 
 // Passing the mailAPI to identify and send mails
-var mailgun = new Mailgun(mailgunAPI)
+const mailgun = new Mailgun(mailgunAPI)
 
 // Test Code for cloud.
 Parse.Cloud.define('hello', function(request, response) {
@@ -22,7 +22,7 @@ Parse.Cloud.define('hello', function(request, response) {
 
 // Ensures a single Databse entry for users.
 Parse.Cloud.beforeSave('Users', (request, response) => {
-  var query = new Parse.Query('Users')
+  const query = new Parse.Query('Users')
   console.log(request.object.get('email'))
 
   // results is an array of objects with email match for example
@@ -51,15 +51,15 @@ Parse.Cloud.beforeSave('Users', (request, response) => {
 Parse.Cloud.afterSave('Users', (request, response) => {
 
   // Getting needed data from request object
-  var object = request.object
-  var username = object.get('username')
-  var email = object.get('email')
+  const object = request.object
+  const username = object.get('username')
+  const email = object.get('email')
 
   // Template to send
-  var welcomeTemplate = mailTemplates(username).welcomeUser()
+  const welcomeTemplate = mailTemplates(username).welcomeUser()
 
   // Data to be sent.
-  var mailData = {
+  const mailData = {
     from: 'team@pictraffiq.com',
     to: email,
     subject: 'Hello from Pictraffiq',
@@ -67,7 +67,7 @@ Parse.Cloud.afterSave('Users', (request, response) => {
   }
 
   // Data to be included to mailing list.
-  var members = [
+  const members = [
     {
       address: email,
       name: username
