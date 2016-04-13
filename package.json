@@ -13,7 +13,7 @@
     "kerberos": "~0.0.x",
     "mailgun-js": "0.7.8",
     "parse": "~1.6.12",
-    "parse-server": "~2.1.4"
+    "parse-server": "~2.2.6"
   },
   "scripts": {
     "start": "node start.js"
