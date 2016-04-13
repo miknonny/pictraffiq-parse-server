@@ -1,4 +1,3 @@
-const Mailgun = require('mailgun')
 const Mailgun = require('mailgun-js')
 const mailTemplates = require('./utils/mailTemplates')
 
