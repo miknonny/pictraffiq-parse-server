@@ -1,22 +1,22 @@
-
 {
-  "name": "Pictraffiq Parse Server",
-  "version": "1.4.0",
-  "description": "Pictraffiq parse-server module",
-  "main": "index.js",
+  "name": "pictraffiq-server",
+  "version": "1.2.0",
+  "description": "An example Parse API server using the parse-server module for OpenShift",
+  "main": "start.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ParsePlatform/parse-server-example"
+    "url": "https://github.com/antt001/parse-server-example"
   },
   "license": "MIT",
   "dependencies": {
-    "express": "~4.11.x",
+    "express": "~4.2.x",
     "kerberos": "~0.0.x",
-    "parse": "~1.8.0",
+    "mailgun-js": "0.7.8",
+    "parse": "~1.6.12",
     "parse-server": "~2.2.6"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node start.js"
   },
   "engines": {
     "node": ">=4.3"
