@@ -1,4 +1,4 @@
-var Mailgun = require('mailgun-js')
+const Mailgun = require('mailgun-js')
 const mailTemplates = require('./utils/mailTemplates')
 
 // Your mailgun API details.
