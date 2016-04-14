@@ -10,7 +10,7 @@ if(process.env.OPENSHIFT_APP_NAME) {
 	databaseName = 'parse-server';
 }
 
-var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI 
+var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI
 	|| process.env.MONGODB_URL + databaseName;
 
 if (!databaseUri) {
@@ -36,7 +36,7 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  res.status(200).send('I dream of being a web site.');
+  res.status(200).send('We are all made of stars.');
 });
 
 var port =  process.env.NODE_PORT || process.env.PORT || 1337;
